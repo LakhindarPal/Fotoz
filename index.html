@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fotoz - Discover Visual Wonders</title>
+  <meta name="description" content="Experience a visual journey like never before with Fotoz – your go-to app for quick and delightful photo exploration. Effortlessly explore and share stunning snapshots.">
+  <meta name="author" content="Lakhindar Pal">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <meta property="og:title" content="Fotoz - Discover Visual Wonders">
+  <meta property="og:description" content="Experience a visual journey like never before with Fotoz – your go-to app for quick and delightful photo exploration. Effortlessly explore and share stunning snapshots.">
+  <meta property="og:image" content="icons/wide-image-1200x630.webp">
+  <meta property="og:url" content="https://fotoz.glitch.me">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Fotoz - Discover Visual Wonders">
+  <meta name="twitter:description" content="Experience a visual journey like never before with Fotoz – your go-to app for quick and delightful photo exploration. Effortlessly explore and share stunning snapshots.">
+  <meta name="twitter:image" content="icons/wide-image-1200x630.webp">
+  <meta property="twitter:url" content="https://fotoz.glitch.me">
+
+  <link rel="apple-touch-icon" sizes="120x120" href="icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-icon-180x180.png">
+
+  <link rel="icon" sizes="192x192" href="icons/android-icon-192x192.png">
+  <link rel="icon" sizes="512x512" href="icons/android-icon-512x512.png">
+
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+
+  <meta name="msapplication-TileImage" content="icons/ms-icon-70x70.png">
+  <meta name="msapplication-TileImage" content="icons/ms-icon-150x150.png">
+  <meta name="msapplication-TileImage" content="icons/ms-icon-310x310.png">
+  <meta name="msapplication-TileColor" content="#3498db">
+
+  <meta name="theme-color" content="#3498db">
+  <meta http-equiv="Content-Language" content="en">
+  <link rel="manifest" href="pwa/manifest.json">
+  <meta name="msapplication-config" content="pwa/browserconfig.xml" />
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("pwa/sw.js")
+        .then((reg) => console.log("Service Worker registered", reg))
+        .catch((err) => console.error("Service Worker **not** registered", err));
+    } else {
+      console.warn("Service Worker not supported in this browser");
+    }
+  </script>
+  <script defer src="data.js"></script>
+  <script defer src="main.js"></script>
+</head>
+
+<body>
+  <header>
+    <div id="branding">
+      <img id="logo" src="icons/site-logo-36x36.png" alt=" Website Logo" width="24" height="24">
+      <h1>Fotoz</h1>
+      <button id="favShowBtn" aria-label="Show favourite images">♥️</button>
+    </div>
+
+    <div id="searchbox">
+      <input type="text" name="search" id="searchInput" placeholder="Enter a keyword" />
+      <br />
+      <label for="source">Source</label>
+      <select name="source" id="sourceSelect">
+        <option value="unsplash">Unsplash</option>
+        <option value="pexels">Pexels</option>
+        <option value="pixabay">Pixabay</option>
+      </select>
+
+      <button id="searchBtn" type="submit">🔍</button>
+    </div>
+  </header>
+  <hr />
+  <main>
+    <section id="gallery">
+      <!-- Images will be added dynamically -->
+    </section>
+
+    <section>
+      <p id="pageInfo"></p>
+      <div id="pagination"></div>
+    </section>
+  </main>
+
+  <dialog id="favouriteModal">
+    <header>
+      <h2>Favourite Images</h2>
+      <button id="favCloseBtn">Close</button>
+    </header>
+    <section id="favContent"></section>
+  </dialog>
+
+  <footer>
+    <p>Made with ❤️ by <a href="https://github.com/LakhindarPal"> @Lakhindar</a></p>
+  </footer>
+</body>
+
+</html>

@@ -91,11 +91,14 @@ dialog {
 
 #gallery,
 #favContent {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 10px;
-  align-items: stretch;
-  margin: auto;
+  --gap: clamp(1rem, 5vmin, 2rem);
+  columns: 200px;
+  gap: var(--gap);
+  width: 96%;
+  max-width: 960px;
+  margin: 5rem auto;
+  padding: 10px;
+
 }
 
 .wrapper {
@@ -103,10 +106,9 @@ dialog {
   box-shadow: 0 0 8px var(--box-shadow-color);
   transition: transform 0.3s ease-in-out;
   border: 1px solid var(--theme-color);
-  margin: 10px;
+  margin-bottom: var(--gap);
   padding: 10px;
-  height: 100%;
-  width: auto;
+  break-inside: avoid;
 }
 
 .wrapper:hover {
